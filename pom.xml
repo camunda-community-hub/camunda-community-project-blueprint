@@ -9,7 +9,7 @@
 
     <!--<packaging>pom</packaging>-->
 
-    <!-- use camunda-release-parent for relasing to maven central and camunda nexus -->
+    <!-- use camunda-release-parent for releasing to maven central and camunda nexus -->
     <parent>
         <groupId>org.camunda</groupId>
         <artifactId>camunda-release-parent</artifactId>
@@ -52,6 +52,22 @@
     </repositories>
     -->
 
+    <properties>
+        <camunda.version>7.3.0</camunda.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.camunda.bpm</groupId>
+                <artifactId>camunda-bom</artifactId>
+                <version>${camunda.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <defaultGoal>clean install</defaultGoal>
     </build>
@@ -64,13 +80,13 @@
         </license>
     </licenses>
 
-    <!-- replace YOUR_REPOSITORY_ID with your repository name -->
-    <scm>
-        <connection>scm:git:git@github.com:camunda/YOUR_REPOSITORY_ID.git</connection>
-        <url>scm:git:git@github.com:camunda/YOUR_REPOSITORY_ID.git</url>
-        <developerConnection>scm:git:git@github.com:camunda/YOUR_REPOSITORY_ID.git</developerConnection>
+    <!-- replace YOUR_ARTIFACT_ID with your repository name -->
+    <!-- scm>
+        <connection>scm:git:git@github.com:camunda/YOUR_ARTIFACT_ID.git</connection>
+        <url>scm:git:git@github.com:camunda/YOUR_ARTIFACT_ID.git</url>
+        <developerConnection>scm:git:git@github.com:camunda/YOUR_ARTIFACT_ID.git</developerConnection>
         <tag>HEAD</tag>
-    </scm>
+    </scm -->
 
     <!-- repositories used for distribution of releases and snapshots, DO NOT CHANGE -->
     <distributionManagement>
@@ -87,5 +103,5 @@
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
     </distributionManagement>
-  </project>
+</project>
 
