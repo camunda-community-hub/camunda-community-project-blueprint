@@ -51,6 +51,22 @@
         </repository>
     </repositories>
     -->
+    
+  <properties>
+    <camunda.version>7.2.0</camunda.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.camunda.bpm</groupId>
+        <artifactId>camunda-bom</artifactId>
+        <version>${camunda.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
     <properties>
         <camunda.version>7.3.0</camunda.version>
